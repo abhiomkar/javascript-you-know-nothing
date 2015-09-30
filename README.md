@@ -43,40 +43,40 @@
 
 **New Constructor**
 
-  _.isObject = function(value) {
-    // also works if the value is 'null'
-    return value === Object(value);
-  };
+    _.isObject = function(value) {
+      // also works if the value is 'null'
+      return value === Object(value);
+    };
 
-  _.new = function(Constructor, args) {
-    var object = Object.create(Constructor.prototype);
+    _.new = function(Constructor, args) {
+      var object = Object.create(Constructor.prototype);
 
-    var returnValue = Constructor.apply(object, args);
+      var returnValue = Constructor.apply(object, args);
 
-    if (_.isObject(returnValue)) {
-      return returnValue;
+      if (_.isObject(returnValue)) {
+        return returnValue;
+      }
+      else {
+        return object;
+      }
+    };
+
+    // Examples
+
+    var Person = function(name) {
+      this.name = name;
     }
-    else {
-      return object;
+
+    Person.prototype.getName = function() {
+      return this.name;
+    };
+
+    Person.prototype.talk = function(message) {
+      console.log(this.name + ' says ' + message);
     }
-  };
 
-  // Examples
+    var john = new Person('John Snow');
+    john.talk('I know nothing!'); // John Snow says I know nothing!
 
-  var Person = function(name) {
-    this.name = name;
-  }
-
-  Person.prototype.getName = function() {
-    return this.name;
-  };
-
-  Person.prototype.talk = function(message) {
-    console.log(this.name + ' says ' + message);
-  }
-
-  var john = new Person('John Snow');
-  john.talk('I know nothing!'); // John Snow says I know nothing!
-
-  var jaqen = _.new(Person, ["Jaqen H'ghar"]);
-  jaqen.talk('Valar Morghulis!');
+    var jaqen = _.new(Person, ["Jaqen H'ghar"]);
+    jaqen.talk('Valar Morghulis!');
