@@ -34,5 +34,5 @@ Person.prototype.talk = function(message) {
 var john = new Person('John Snow');
 john.talk('I know nothing!'); // John Snow says I know nothing!
 
-var jaqen = _.new(Person, ["Jaqen H'ghar"]);
+var jaqen = _.new(Person, ["Jaqen H'ghar"]); // same as new Person()
 jaqen.talk('Valar Morghulis!'); // Jaqen H'ghar says Valar Morghulis!

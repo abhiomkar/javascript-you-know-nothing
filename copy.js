@@ -29,10 +29,23 @@ c.eight = 8;
 // NOTE: Object.assign() is introduced in ES6
 let C1 = Object.assign({}, c);
 
-console.log('Object.assign = C1: ', C1); // {'six': 6, 'seven': 7, 'eight': 8}
-console.log('Object.assign = C1.one: ', C1.one); // undefined
+console.log('C1: ', C1); // {'six': 6, 'seven': 7, 'eight': 8}
+console.log('C1.one: ', C1.one); // undefined
 
 let C2 = _.copy(c);
 
-console.log('Object.assign = C2: ', C2); // {'six': 6, 'seven': 7, 'eight': 8} with same prototype chain as 'c'
-console.log('Object.assign = C2.one: ', C2.one); // 1
+console.log('C2: ', C2); // {'six': 6, 'seven': 7, 'eight': 8} with same prototype chain as 'c'
+console.log('C2.one: ', C2.one); // 1
+
+let d = {
+	'nine': 9,
+	'ten': {
+		'eleven': 11,
+		'twelve': 12,
+		'thirteen': 13
+	},
+	'twenty': 20
+};
+
+let D = _.copy(d);
+console.log('D:', D);

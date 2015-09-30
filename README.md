@@ -1,6 +1,6 @@
 # JavaScript: You Know Nothing
 
-**Copy Object**
+**Copy Object (also copies inherited properties)**
 
     let _ = {};
 
@@ -41,7 +41,7 @@
     console.log('Object.assign = C2: ', C2); // {'six': 6, 'seven': 7, 'eight': 8} with same prototype chain as 'c'
     console.log('Object.assign = C2.one: ', C2.one); // 1
 
-**New Constructor**
+**Implementing New Constructor**
 
     _.isObject = function(value) {
       // also works if the value is 'null'
@@ -78,5 +78,5 @@
     var john = new Person('John Snow');
     john.talk('I know nothing!'); // John Snow says I know nothing!
 
-    var jaqen = _.new(Person, ["Jaqen H'ghar"]);
-    jaqen.talk('Valar Morghulis!');
+    var jaqen = _.new(Person, ["Jaqen H'ghar"]); // same as new Person()
+    jaqen.talk('Valar Morghulis!'); // Jaqen H'ghar says Valar Morghulis!
